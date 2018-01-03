@@ -4,6 +4,3 @@ console.log($kivi);
 if ($kivi == 1) {
   throw "Ашипка!!";
 }
-
-
-get('google.com', (result) => console.log(result););
