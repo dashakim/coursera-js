@@ -1,2 +1,8 @@
-console.log(parseInt('38 попугаев', 10));
-throw "Ашипка!!";
+/**
+ * @param {Number} a Первое слагаемое
+ * @param {Number} b Второе слагаемое
+ * @returns {Number}
+ */
+module.exports = function (a, b) {
+    return parseInt(a, 10) + parseInt(b, 10);
+};
