@@ -2,9 +2,9 @@
 var assert = require('assert');
 
 // Подключаем свою функцию
-var sum = require('./index.js');
+var isValidTime = require('./index.js');
 
-assert.equal(sum(12, 33), 45, 'При сложении 12 и 33 получится 45');
-assert.equal(sum(101, '17'), 118, 'При сложении 101 и 17 получится 118');
+assert.equal(isValidTime(12, 30), true, 'Время 12:30 валидное.');
+assert.equal(isValidTime(12, 61), false, 'Время 12:61 невалидное');
 
 console.info('OK!');

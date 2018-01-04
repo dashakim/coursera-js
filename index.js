@@ -1,8 +1,12 @@
 /**
- * @param {Number} a Первое слагаемое
- * @param {Number} b Второе слагаемое
- * @returns {Number}
+ * @param {Number} hours
+ * @param {Number} minutes
+ * @returns {Boolean}
  */
-module.exports = function (a, b) {
-    return Number(a) + Number(b);
+module.exports = function (hours, minutes) {
+    if (hours >= 0 && hours <= 23 && minutes >= 0 && minutes <= 59) {
+        return true;      
+    } 
+    
+    return false;
 };
