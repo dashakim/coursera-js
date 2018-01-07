@@ -6,9 +6,14 @@
 </head>
 
 <body>
-
-  <script src="alert.js">  </script> 
-<!--коммент  -->
+  <script>
+var x = prompt('Введите значение', '-22.4');
+if (isNaN(x)) {
+    alert( 'Строка преобразовалась в NaN. Не число');
+}   else {
+    alert( 'Число');
+}
+  </script>
 </body>
 
 </html>
