@@ -35,5 +35,40 @@ var person = {
         water: 0
     }
 }
-console.log(person.name);
-console.log(person.with.nutes);
+    console.log(person.name);
+    console.log(person.with.nutes);
+
+var list = {
+    width: 200,
+    height: 100,
+    title: 'List'
+};
+for ( var PrName in list) {
+    console.log( "ключ: " + PrName + " значение: " + list[PrName] );
+}
+var Slist = {
+    size: '12Px',
+    position: 2,
+    blabla: 1,
+};
+var counter = 0;
+    for (var key in Slist) {
+        counter++;
+    }
+    console.log("Всего блабла: " + counter);
+  
+function isEmpty(obj) {
+for (var key in obj) {
+    return false;
+  }
+  return true;
+}
+
+var schedule = {};
+
+console.log( isEmpty(schedule) ); // true
+
+schedule["8:30"] = "подъём";
+
+console.log( isEmpty(schedule) ); // false
+    
