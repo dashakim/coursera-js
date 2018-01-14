@@ -20,23 +20,26 @@ while (true) {
     console.log ( foundPos ); //нашли на этой позиции
     pos = foundPos + 1; //продолжить поиск со следующей
 }
-    console.log (String.fromCharCode(1233) );
-    console.log ("банан".charCodeAt(0));//1073, код 'a'
+
+console.log (String.fromCharCode(1233) );
+console.log ("банан".charCodeAt(0));//1073, код 'a'
 
 var str = '';
 for (var i = 1021; i <= 1141; i++) {
     str +=String.fromCharCode(i);
 }
+
 console.log( str );
 
 var str = "Палки";
-    console.log( str.localeCompare("Ёлки"));
+console.log( str.localeCompare("Ёлки"));
 
-    //Сделать первый символ заглавным
-    var newStr = str[0].toUpperCase + str.slice(1); // ошибка в случае пустой строки
+//Сделать первый символ заглавным
+var newStr = str[0].toUpperCase + str.slice(1); // ошибка в случае пустой строки
+
 function ucFirst(str) {
     if (!str) return str;
      
     return str[0].toUpperCase() + str.slice(1);
     console.log( ucFirst("крокозяблик"));
-    }
+}
