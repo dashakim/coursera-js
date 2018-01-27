@@ -43,3 +43,11 @@ function ucFirst(str) {
     return str[0].toUpperCase() + str.slice(1);
     console.log( ucFirst("крокозяблик"));
 }
+
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+var name = 'Daria';
+var age = '18';
+var greting = `Hello ${name}, you're young (${age})`
+
+console.log(greting);
