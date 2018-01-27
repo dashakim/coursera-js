@@ -56,7 +56,7 @@ function show() {
         var phones = phoneBook[name];
         
         if (phones.length > 0){
-            result.push(`${name}: ${phones.join(', ' )}`);
+            result.push(name + ': ' + phones.join(', ' ));
         }
     }
 
