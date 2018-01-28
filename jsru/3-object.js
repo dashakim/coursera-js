@@ -1,7 +1,7 @@
-var person = {}; //создаем пустой обьект
+ var person = {}; //создаем пустой обьект
     person.name = 'Зинаида'; //присвоили свойство  
     person.gender = 'female';
-//delete person.gender; // удалили свойство(осталось имя)
+delete person.gender; // удалили свойство(осталось имя)
     console.log( person.name + ' : ' +person.gender );
 if ('name' in person) {
     console.log("Таки да");
@@ -69,5 +69,5 @@ var schedule = {};
 console.log( isEmpty(schedule) ); // true
 
 schedule["8:30"] = "подъём";
-
 console.log( isEmpty(schedule) ); // false
+
