@@ -19,3 +19,15 @@ function Animal(name) {
 var animal = new Animal("ёжик");
 
 console.log(animal);
+
+var obj = {
+    name: 'Dasha',
+    lastName: 'Kim',
+    fullName: '...',
+};
+obj['age'] = 13;
+
+var nd = Object.getOwnPropertyDescriptor(obj, 'name');
+var ad = Object.getOwnPropertyDescriptor(obj, 'age');
+console.log(nd, ad);
+//Object.defineProperties(obj, props)
