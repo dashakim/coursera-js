@@ -1,4 +1,4 @@
-Методы у обьектов
+//Методы у обьектов
 var person = {
     name: 'Leo',
     sayAge: function(){
@@ -32,3 +32,15 @@ var stairs = {
 }
 
 stairs.up().up().up().down().showstep();
+
+return {
+    up: function () {
+        throw Exception;
+    },
+    down: function() {
+        throw Exception;
+    },
+    showstep: function() {
+        throw Exception;
+    }
+}
