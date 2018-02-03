@@ -40,15 +40,3 @@ assert.throws(
 );
 
 console.info('OK!');
-
-var input = '2017-05-16 13:45'.split(' ');
-var date = input[0];
-var dateParts = input.split(' ')
-var time = input[1];
-
-// -------
-var result = input.match( /[- :]/gi );
-var year = result[1];
-var month = result[2];
-var  days = result[3];
-

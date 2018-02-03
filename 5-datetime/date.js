@@ -11,4 +11,4 @@ function getWeekDate(date) {
 }
 
 var date = new Date(2004, 0, 3);
-console.log(getWeekDate(date) );
+console.log(getWeekDate(date));
