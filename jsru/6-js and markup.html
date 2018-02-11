@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+        function onLoad() {
+            //setTimeout(pageLoaded, 3000);
+        };
+
+        function onButtonClick() {
+            //setText('<b>The button pushed!</b>')
+            pageLoaded();
+        }
+
+        function pageLoaded() {
+            setText('<b>Page loaded!</b>');
+        };
+
+        function divClicked() {
+            setText('Div Clicked');
+        }
+
+        function setText(text) {
+            element = document.getElementById('main-container');
+            element.innerHTML = text;
+        }
+    </script>
+</head>
+<body onload="onLoad()">
+    <div id="main-container" onclick="divClicked()">
+        <i>Page loading...</i>
+    </div>
+    <button onclick="onButtonClick()">Push the button!</button>
+</body>
+</html>
