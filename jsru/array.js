@@ -12,8 +12,8 @@ var result = arr.reduce(function(sum, current) {
 console.log( result ); 
 
 var arr = ["Есть", "жизнь", "на", "Марсе"];
-var arrLength = arr.map(function(names) {
-    return names.length;
+var arrLength = arr.map(function(name) {
+    return name.length;
 });
 
 console.log(arrLength);
