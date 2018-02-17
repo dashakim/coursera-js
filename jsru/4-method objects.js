@@ -17,8 +17,8 @@ user.sayHi();
 
 var stairs = {
     step: 0,
-    up: function () {
-        this.step++;
+    up: function (steps) {
+        this.step = this.step + steps;
         return this;
     },
     down: function() {
@@ -31,16 +31,4 @@ var stairs = {
     }
 }
 
-stairs.up().up().up().down().showstep();
-
-return {
-    up: function () {
-        throw Exception;
-    },
-    down: function() {
-        throw Exception;
-    },
-    showstep: function() {
-        throw Exception;
-    }
-}
+stairs.up(5).up(2).up(3).down().showstep();
