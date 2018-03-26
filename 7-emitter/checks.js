@@ -27,7 +27,8 @@ emitter
         // this указывает на logger
         this.logs.push('Добавлена новая нотификация. Количество - ' + notifications.counter);
     })
-    .emit('new_notification');
+    .emit('new_notification')
+    .emit('lol');
 
 // Проверяем количество нотификаций
 assert.equal(notifications.counter, 1, 'Получена одна нотификация');
@@ -57,5 +58,33 @@ assert.deepEqual(logger.logs, [
     'Добавлена новая нотификация. Количество - 1',
     'Новое событие new_notification!'
 ]);
+
+// notifications.counter = 0;
+// logger.logs = [];
+
+// emitter
+//     .off('new_notification')
+//     .on('event1', notifications, notifications.count)
+//     .on('event1', notifications, notifications.count)
+//     .on('event2', logger, function () {
+//         this.logs.push('Произошло новое событие event2');
+//     })
+//     .on('event2', logger, function () {
+//         this.logs.push('Произошло новое событие event2');
+//     });
+
+// emitter
+//     .emit('event1')
+//     .off('event1', notifications)
+//     .emit('event1');
+
+// assert.equal(notifications.counter, 2, 'Получена одна нотификация');
+// assert.deepEqual(logger.logs, []);
+
+// emitter.emit('event2');
+// assert.deepEqual(logger.logs, [
+//     'Произошло новое событие event2',
+//     'Произошло новое событие event2'
+// ]);
 
 console.info('OK!');

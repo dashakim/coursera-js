@@ -6,10 +6,39 @@ module.exports = {
      * @param {Function} handler
      */
     on: function (event, subscriber, handler) {
-        var events = Object.keys(this.subscriptions);
-        if (events.indexOf(event) == -1) {
-            this.subscriptions[event] = [];
+        this.getSubscription(event, subscriber).handlers.push(handler);
+        return this;
+    },
+
+    /**
+     * @param {String} event
+     * @param {Object} subscriber
+     */
+    off: function (event, subscriber) {
+        this.getSubscription(event, subscriber).handlers = [];
+        return this;
+    },
+
+    /**
+     * @param {String} event
+     */
+    emit: function (event) {
+        var subsForEvent = this.subscriptions[event] || [];
+        for (var i = 0; i < subsForEvent.length; i++) {
+            var subAndHandlers = subsForEvent[i];
+            var handlers = subAndHandlers.handlers;
+            var subscriber = subAndHandlers.subscriber;
+            
+            for (var j = 0; j < handlers.length; j++) {
+                var handler = handlers[j];
+                handler.call(subscriber);
+            }
         }
+        return this;
+    },
+    
+    getSubscription: function(event, subscriber){
+        this.subscriptions[event] = this.subscriptions[event] || [];
 
         var subsForEvent = this.subscriptions[event];
         var foundAt = -1;
@@ -23,51 +52,11 @@ module.exports = {
         }
 
         if (foundAt == -1){
-            subsForEvent.push({subscriber: subscriber, handlers: [handler]})
-        }
-        else {
-            subsForEvent[foundAt].handlers.push(handler);
-        }
-  
-        return this;
-    },
-
-    /**
-     * @param {String} event
-     * @param {Object} subscriber
-     */
-    off: function (event, subscriber) {
-        var subsForEvent = this.subscriptions[event];
-        var foundAt = -1;
-
-        for (var i = 0; i < subsForEvent.length; i++) {
-            var subAndHandlers = subsForEvent[i];
-            if (subAndHandlers.subscriber == subscriber){
-                foundAt = i;
-                break;
-            }
+            var subAndHandlers = {subscriber: subscriber, handlers: []};
+            subsForEvent.push(subAndHandlers);
+            return subAndHandlers;
         }
 
-        if (foundAt != -1)
-            subsForEvent.splice(foundAt, 1);
-
-        return this;
-    },
-
-    /**
-     * @param {String} event
-     */
-    emit: function (event) {
-        var subsForEvent = this.subscriptions[event];
-        for (var i = 0; i < subsForEvent.length; i++) {
-            var subAndHandlers = subsForEvent[i];
-            for (var j = 0; j < subAndHandlers.handlers.length; j++) {
-                var handler = subAndHandlers.handlers[j];
-                var subscriber = subAndHandlers.subscriber;
-
-                handler.call(subscriber);
-            }
-        }
-        return this;
+        return subsForEvent[foundAt];
     }
 };
